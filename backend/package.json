@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
+  },
+  "peerDependencies": {},
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.7",
+    "@types/nodemon": "^1.19.0",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.5.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@types/lowdb": "^1.0.9",
+    "apollo-server": "^2.9.9",
+    "graphql": "^14.5.8",
+    "lowdb": "^1.0.0"
+  }
+}

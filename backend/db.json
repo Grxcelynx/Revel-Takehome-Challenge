@@ -1,0 +1,20 @@
+{
+  "resume": {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane@doe.com",
+    "funFact": "Im fake!",
+    "bio": "Not much to say about me since I don't exist!",
+    "hobbies": ["impersonating a person"],
+    "pastJobs": [
+      {
+        "company": "Fake Inc.",
+        "startDate": "2019-11-14T23:41:24.104Z",
+        "endDate": "2019-11-14T23:41:24.104Z",
+        "accomplishments": ["Get a job without being alive!"],
+        "languagesUsed": ["JAVASCRIPT"],
+        "technologiesUsed": ["REACT"]
+      }
+    ]
+  }
+}
