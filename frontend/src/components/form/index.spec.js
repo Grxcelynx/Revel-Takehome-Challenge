@@ -50,7 +50,7 @@ describe("form", () => {
     // Below is where the test will fail, since these need to be created
     // Remove the comments below and make it work :)
 
-    // getByLabelText(/hobbies/i);
+    getByLabelText(/hobbies/i);
     // getByLabelText(/past jobs/i);
   });
 

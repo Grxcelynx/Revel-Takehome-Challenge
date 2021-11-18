@@ -146,23 +146,29 @@ export default function Form({ resume: initialResume }) {
       </div>
 
       <div>
-        <strong>Hobbies</strong>
-        <p>
-          Add me in this form!
-          <span role="img" aria-label="heart">
-            ♥️
-          </span>
-        </p>
+        <label htmlFor="hobbies" className={styles.inputWrapper}>
+          Hobbies
+          <textarea
+            id="hobbies"
+            value={resume.hobbies}
+            onChange={({ target: {value} })=>
+              setResume({ ...resume, hobbies: value})
+          }
+          />
+        </label>
       </div>
 
       <div>
-        <strong>Past jobs</strong>
-        <p>
-          Add me in this form!{" "}
-          <span role="img" aria-label="heart">
-            ❤️
-          </span>
-        </p>
+        <label htmlFor="pastJobs" className={styles.inputWrapper}>
+          Past jobs
+          <input 
+            id="pastJobs"
+            value={resume.pastJobs}
+            onChange={({ target: {value} })=>
+              setResume({ ...resume, pastJobs: value})
+          }
+          />
+        </label>
       </div>
 
       <button>Save</button>
