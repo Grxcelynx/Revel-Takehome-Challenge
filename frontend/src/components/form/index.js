@@ -148,7 +148,7 @@ export default function Form({ resume: initialResume }) {
       <div>
         <label htmlFor="hobbies" className={styles.inputWrapper}>
           Hobbies
-          <textarea
+          <input
             id="hobbies"
             value={resume.hobbies}
             onChange={({ target: {value} })=>
@@ -159,15 +159,17 @@ export default function Form({ resume: initialResume }) {
       </div>
 
       <div>
-        <label htmlFor="pastJobs" className={styles.inputWrapper}>
+        <label htmlFor="past jobs" className={styles.inputWrapper}>
           Past jobs
           <input 
             id="pastJobs"
-            value={resume.pastJobs}
+            value={resume.pastJobs.company}
             onChange={({ target: {value} })=>
               setResume({ ...resume, pastJobs: value})
-          }
-          />
+          } 
+          >
+
+          </input>
         </label>
       </div>
 

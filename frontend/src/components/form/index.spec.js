@@ -47,11 +47,11 @@ describe("form", () => {
     getByLabelText(/fun fact/i);
     getByLabelText(/bio/i);
 
+
     // Below is where the test will fail, since these need to be created
     // Remove the comments below and make it work :)
-
     getByLabelText(/hobbies/i);
-    // getByLabelText(/past jobs/i);
+    getByLabelText(/past jobs/i);
   });
 
   it("loads the existing form in on first mount", () => {
@@ -63,11 +63,12 @@ describe("form", () => {
     expect(getByLabelText(/fun fact/i).value).toBe(props.resume.funFact);
     expect(getByLabelText(/bio/i).value).toBe(props.resume.bio);
 
+
     // Below is where the test will fail, since these need to be created
     // Remove the comments below and make it work :)
-
-    // expect(getByLabelText(/hobbies/i).value).toBe(props.resume.hobbies);
-    // expect(getByLabelText(/past jobs/i).value).toBe(props.resume.pastJobs);
+    expect(getByLabelText(/hobbies/i).value).toBe(props.resume.hobbies);
+    expect(getByLabelText(/past jobs/i).value).toBe(props.resume.pastJobs)
+;
   });
 
   it("allows mutliple hobby fields to be added", () => {
