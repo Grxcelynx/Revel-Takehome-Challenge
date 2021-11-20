@@ -71,7 +71,7 @@ export default function Form({ resume: initialResume }) {
   });
 
   let [editResume] = useMutation(EDIT_RESUME);
-
+  console.log(resume)
   return (
     <form
       onSubmit={e => {
@@ -152,7 +152,7 @@ export default function Form({ resume: initialResume }) {
             id="hobbies"
             value={resume.hobbies}
             onChange={({ target: {value} })=>
-              setResume({ ...resume, hobbies: value})
+              setResume({ ...resume, hobbies: value.split(",")})
           }
           />
         </label>
@@ -161,19 +161,22 @@ export default function Form({ resume: initialResume }) {
       <div>
         <label htmlFor="past jobs" className={styles.inputWrapper}>
           Past jobs
-          <input 
+          <div 
             id="pastJobs"
-            value={resume.pastJobs.company}
-            onChange={({ target: {value} })=>
-              setResume({ ...resume, pastJobs: value})
-          } 
+            value={resume.pastJobs}
+          //   onChange={({ target: {value} })=>
+          //     setResume({ ...resume, pastJobs: value})
+          // } 
           >
 
-          </input>
+          </div>
+
         </label>
       </div>
 
-      <button>Save</button>
+
+      <button type="submit" >Save</button> 
+      
 
       {/* https://www.apollographql.com/docs/react/data/mutations/#tracking-loading-and-error-states */}
       <p>Fake error, this needs to be implemented</p>
