@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import styles from "./index.module.scss";
+import { render } from "@testing-library/react";
 
 export let EDIT_RESUME = gql`
   mutation EditResume(
@@ -158,20 +159,19 @@ export default function Form({ resume: initialResume }) {
         </label>
       </div>
 
-      <div>
-        <label htmlFor="past jobs" className={styles.inputWrapper}>
-          Past jobs
-          <div 
-            id="pastJobs"
-            value={resume.pastJobs}
-          //   onChange={({ target: {value} })=>
-          //     setResume({ ...resume, pastJobs: value})
-          // } 
-          >
-
-          </div>
-
+      <label htmlFor="past jobs" className={styles.inputWrapper}>
+          Past Jobs
         </label>
+      <div>
+        {resume.pastJobs.map((job) => (
+        <div id={job.company}>
+          <div>{job.company}</div>
+          <div>{job.startDate}</div>
+          <div>{job.accomplishments}</div>
+        </div>
+        
+        ))}
+
       </div>
 
 

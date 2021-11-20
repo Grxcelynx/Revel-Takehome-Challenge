@@ -23,6 +23,20 @@
         "technologiesUsed": [
           "REACT"
         ]
+      },
+      {
+        "company": "TEST Inc.",
+        "startDate": "2019-11-14T23:41:24.104Z",
+        "endDate": "2019-11-14T23:41:24.104Z",
+        "accomplishments": [
+          "Get a job without being alive!"
+        ],
+        "languagesUsed": [
+          "JAVASCRIPT"
+        ],
+        "technologiesUsed": [
+          "REACT"
+        ]
       }
     ]
   }
