@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import styles from "./index.module.scss";
-import { render } from "@testing-library/react";
+// import { render } from "@testing-library/react";
 
 export let EDIT_RESUME = gql`
   mutation EditResume(
@@ -161,35 +161,83 @@ export default function Form({ resume: initialResume }) {
 
       <label htmlFor="past jobs" className={styles.inputWrapper}>
           Past Jobs
-        
-      
-      <div>
-        {resume.pastJobs.map(({
+      {/* <div
+              id="pastJobs"
+              value={resume.pastJobs}
+              onChange={({ target: {value} })=>
+                setResume({ ...resume, pastJobs: value})
+            }
+      > */}
+        {resume.pastJobs.map(
+          ({
               company,
               startDate,
               endDate,
               accomplishments,
               languagesUsed,
               technologiesUsed
-        }) => (
-        <div 
-        id="pastJobs"
-        value={resume.pastJobs}
-        onChange={({ target: {value} })=>
-          setResume({ ...resume, pastJobs: value})
-      }
-        >
-          <p>{company}</p>
-          <div>{startDate}</div>
-          <div>{endDate}</div>
-          <div>{accomplishments}</div>
-          <div>{languagesUsed}</div>
-          <div>{technologiesUsed}</div>
+        }) => { return (
+        <div key={company}>
+          Company
+          <input 
+          key={company}
+          value={company}
+          onChange={({ target: {value}})=>
+            setResume({ ...resume, company: value})
+        }
+          />
+          <br/>
+          Start Date
+            <input 
+            key={startDate}
+            value={startDate}
+            onChange={({ target: {value}})=>
+              setResume({ ...resume, startDate: value})
+          }            
+            />
+          <br/>
+          End Date
+            <input 
+            key={endDate}
+            value={endDate}
+            onChange={({ target: {value}})=>
+              setResume({ ...resume, endDate: value})
+          }           
+            />
+          <br/>
+          Accomplishments
+            <input 
+            key={accomplishments}
+            value={accomplishments}
+            onChange={({ target: {value}})=>
+              setResume({ ...resume, accomplishments: value})
+          }
+            />
+          <br/>
+          Languages
+            <input 
+            key={languagesUsed}
+            value={languagesUsed}
+            onChange={({ target: {value}})=>
+              setResume({ ...resume, languagesUsed: value})
+          }
+            />       
+          <br/>
+          Technologies
+            <input 
+            key={technologiesUsed}
+            value={technologiesUsed}
+            onChange={({ target: {value}})=>
+              setResume({ ...resume, technologiesUsed: value})
+          }           
+            />  
+          
         </div>
-        
-        ))}
+        );
+        }
+        )}
 
-      </div>
+      {/* </div> */}
       </label>
 
 
