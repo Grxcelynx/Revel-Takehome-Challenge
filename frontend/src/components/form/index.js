@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import styles from "./index.module.scss";
+import { render } from "@testing-library/react";
 // import { render } from "@testing-library/react";
 
 export let EDIT_RESUME = gql`
@@ -85,6 +86,7 @@ export default function Form({ resume: initialResume }) {
         <label htmlFor="firstName" className={styles.inputWrapper}>
           First name
           <input
+          className={styles.light}
             id="firstName"
             value={resume.firstName}
             onChange={({ target: { value } }) =>
@@ -98,6 +100,7 @@ export default function Form({ resume: initialResume }) {
         <label htmlFor="lastName" className={styles.inputWrapper}>
           Last name
           <input
+            className={styles.light}
             id="lastName"
             value={resume.lastName}
             onChange={({ target: { value } }) =>
@@ -111,6 +114,7 @@ export default function Form({ resume: initialResume }) {
         <label htmlFor="email" className={styles.inputWrapper}>
           Email
           <input
+            className={styles.light}
             id="email"
             value={resume.email}
             onChange={({ target: { value } }) =>
@@ -124,6 +128,7 @@ export default function Form({ resume: initialResume }) {
         <label htmlFor="funFact" className={styles.inputWrapper}>
           Fun fact
           <input
+            className={styles.light}
             id="funFact"
             value={resume.funFact}
             onChange={({ target: { value } }) =>
@@ -137,6 +142,7 @@ export default function Form({ resume: initialResume }) {
         <label htmlFor="bio" className={styles.inputWrapper}>
           Bio
           <textarea
+            className={styles.light}
             id="bio"
             value={resume.bio}
             onChange={({ target: { value } }) =>
@@ -150,6 +156,7 @@ export default function Form({ resume: initialResume }) {
         <label htmlFor="hobbies" className={styles.inputWrapper}>
           Hobbies
           <input
+            className={styles.light}
             id="hobbies"
             value={resume.hobbies}
             onChange={({ target: {value} })=>
@@ -161,13 +168,14 @@ export default function Form({ resume: initialResume }) {
 
       <label htmlFor="past jobs" className={styles.inputWrapper}>
           Past Jobs
-      {/* <div
+      <div
+              className={styles.jobSections}
               id="pastJobs"
               value={resume.pastJobs}
               onChange={({ target: {value} })=>
                 setResume({ ...resume, pastJobs: value})
-            }
-      > */}
+        }
+      >
         {resume.pastJobs.map(
           ({
               company,
@@ -180,6 +188,7 @@ export default function Form({ resume: initialResume }) {
         <div key={company}>
           Company
           <input 
+          className={styles.light}
           key={company}
           value={company}
           onChange={({ target: {value}})=>
@@ -189,8 +198,9 @@ export default function Form({ resume: initialResume }) {
           <br/>
           Start Date
             <input 
+            className={styles.light}
             key={startDate}
-            value={startDate}
+            value={startDate} 
             onChange={({ target: {value}})=>
               setResume({ ...resume, startDate: value})
           }            
@@ -198,6 +208,7 @@ export default function Form({ resume: initialResume }) {
           <br/>
           End Date
             <input 
+            className={styles.light}
             key={endDate}
             value={endDate}
             onChange={({ target: {value}})=>
@@ -206,7 +217,8 @@ export default function Form({ resume: initialResume }) {
             />
           <br/>
           Accomplishments
-            <input 
+            <input
+            className={styles.light}
             key={accomplishments}
             value={accomplishments}
             onChange={({ target: {value}})=>
@@ -216,6 +228,7 @@ export default function Form({ resume: initialResume }) {
           <br/>
           Languages
             <input 
+            className={styles.light}
             key={languagesUsed}
             value={languagesUsed}
             onChange={({ target: {value}})=>
@@ -225,19 +238,21 @@ export default function Form({ resume: initialResume }) {
           <br/>
           Technologies
             <input 
+            className={styles.light}
             key={technologiesUsed}
             value={technologiesUsed}
             onChange={({ target: {value}})=>
               setResume({ ...resume, technologiesUsed: value})
           }           
             />  
-          
+        
         </div>
+        
         );
         }
         )}
 
-      {/* </div> */}
+      </div>
       </label>
 
 

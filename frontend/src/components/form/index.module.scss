@@ -1,6 +1,25 @@
 .inputWrapper {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 300px;
   margin-bottom: 1rem;
+}
+
+
+.light {
+  margin: 0.25rem 0;
+  font-size: 0.7rem;
+  color: #676e72;
+}
+
+.jobSections {
+  margin: 0.25rem 0;
+  font-size: 0.8rem;
+  color: #3a3f42;
+}
+
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
