@@ -161,18 +161,36 @@ export default function Form({ resume: initialResume }) {
 
       <label htmlFor="past jobs" className={styles.inputWrapper}>
           Past Jobs
-        </label>
+        
+      
       <div>
-        {resume.pastJobs.map((job) => (
-        <div id={job.company}>
-          <div>{job.company}</div>
-          <div>{job.startDate}</div>
-          <div>{job.accomplishments}</div>
+        {resume.pastJobs.map(({
+              company,
+              startDate,
+              endDate,
+              accomplishments,
+              languagesUsed,
+              technologiesUsed
+        }) => (
+        <div 
+        id="pastJobs"
+        value={resume.pastJobs}
+        onChange={({ target: {value} })=>
+          setResume({ ...resume, pastJobs: value})
+      }
+        >
+          <p>{company}</p>
+          <div>{startDate}</div>
+          <div>{endDate}</div>
+          <div>{accomplishments}</div>
+          <div>{languagesUsed}</div>
+          <div>{technologiesUsed}</div>
         </div>
         
         ))}
 
       </div>
+      </label>
 
 
       <button type="submit" >Save</button> 
