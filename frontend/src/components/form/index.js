@@ -184,15 +184,23 @@ export default function Form({ resume: initialResume }) {
               accomplishments,
               languagesUsed,
               technologiesUsed
-        }) => { return (
+        }, index) => { return (
         <div key={company}>
           Company
           <input 
           className={styles.light}
           key={company}
           value={company}
-          onChange={({ target: {value}})=>
-            setResume({ ...resume, company: value})
+          onChange={({ target: {value}})=> {
+            const job = resume.pastJobs[index]
+            const updatedJob = {
+              ...job, company: value
+            }
+            resume.pastJobs[index] = updatedJob
+            setResume({ ...resume})
+            console.log("COMPANY ONCHANGE" , resume, { ...resume, company: value})
+          }
+          
         }
           />
           <br/>
